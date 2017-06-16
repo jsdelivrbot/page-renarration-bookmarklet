@@ -10,7 +10,7 @@ function annoletContainer(){
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
     //using rawgit.com MaxCDN.. files directly linked to git repo 'webpage-transformation/master'
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/bookmarklet/2b4fda52/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
     
     //injecting html code
@@ -70,7 +70,7 @@ function disableCss(){
     var styleSheets = document.styleSheets;
     for ( i=0; i<styleSheets.length; i++) {
     //alert("hello2");
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/bookmarklet/2b4fda52/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/page_renarration.css'){
            styleSheets[i].disabled = false;
            //alert("hello3");
         }
@@ -196,9 +196,9 @@ function alternateStylesheets(){
     //appending a CSS alternate stylesheets to head element of a webpage.
     var i= 0;
     var style_sheets = 3; 
-    var css_themes =['https://cdn.rawgit.com/sadhanareddy/bookmarklet/bdf740b5/css/switch1.css',
-    'https://cdn.rawgit.com/sadhanareddy/bookmarklet/bdf740b5/css/switch2.css',
-    'https://cdn.rawgit.com/sadhanareddy/bookmarklet/bdf740b5/css/switch3.css'];
+    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch1.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch2.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch3.css'];
     var link_title =['switch1', 'switch2', 'switch3'];
 
     for(i=0; i<style_sheets; i++){

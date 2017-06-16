@@ -10,7 +10,7 @@ function annoletContainer(){
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
     //using rawgit.com MaxCDN.. files directly linked to git repo 'webpage-transformation/master'
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/fd5a8b04/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/e4c81a95/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
     
     //injecting html code
@@ -70,7 +70,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/fd5a8b04/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/e4c81a95/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{

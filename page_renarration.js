@@ -34,8 +34,8 @@ function annoletContainer(){
         "</li>"+
         "<li class='annolet-element'>"+
             "<select class='select-menu' >"+
-                "<option id='show-text' >Show Text</option>"+
                 "<option id='show-links' >Show Links</option>"+
+                "<option id='show-text' >Show Text</option>"+
                 "<option id='show-images' >Show Images</option>"+
             "</select>"+"<br>"+
             "<h6 style='color:orange;'>Webpage Stripper</h6>"+
@@ -55,7 +55,7 @@ function annoletContainer(){
 }
 
 
-// function to disable all links on the webpage.
+// function to disable all links on a webpage.
 function disableLinks(){
     // Disable all links
     var anchors = document.getElementsByTagName("a");
@@ -66,22 +66,19 @@ function disableLinks(){
 
 //Function to disable the css of a web page.
 function disableCss(){
-    //alert("hello1");
     var styleSheets = document.styleSheets;
-    for ( i=0; i<styleSheets.length; i++) {
-    //alert("hello2");
+    for ( var i=0; i<styleSheets.length; i++) {
         if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/fd5a8b04/css/page_renarration.css'){
            styleSheets[i].disabled = false;
-           //alert("hello3");
         }
         else{
             styleSheets[i].disabled = true;
         }
-   }
+    }
 }
 
 
-//Function to erase the content on a webpage.
+//Function to erase the unwanted content on a webpage.
 function  Zapper(){
     alert("Remove the content by clicking anywhere on the document");
     $("body").click(function(event){
@@ -144,7 +141,7 @@ function phoneticsTrans(){
             if (this.readyState==4 && this.status==200) {
                 var res = this.responseText;
                 alert(res);
-                document.querySelector('#textarea').innerHTML = res;
+                //document.querySelector('#textarea').innerHTML = res;
             }
         }
     }, false);
@@ -217,12 +214,12 @@ function switchStyle(css_title)
    var i;
    var linktag = document.getElementsByTagName("link");
    for (i = 0; i < linktag.length; i++ ) {
-    if ((linktag[i].rel.indexOf( "stylesheet" ) != -1) &&linktag[i].title) {
-        linktag[i].disabled = true ;
-        if (linktag[i].title == css_title) {
-        linktag[i].disabled = false ;
-         }
-    }
+        if ((linktag[i].rel.indexOf( "stylesheet" ) != -1) &&linktag[i].title) {
+            linktag[i].disabled = true ;
+            if (linktag[i].title == css_title) {
+                linktag[i].disabled = false ;
+            }
+        }
    }
 }
 

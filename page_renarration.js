@@ -22,7 +22,9 @@ function annoletContainer(){
         "<li id='highlight-text' class='annolet-element' >"+
             "<button id='highlighter-btn'>Highlighter</button>"+
         "</li>"+
-        "<li id='phonetic-trans' class='annolet-element' >Phonetics</li>"+
+        "<li id='phonetic-trans' class='annolet-element' >"+
+            "<button id='phonetics-btn'>Phonetics</button>"+
+        "</li>"+
         "<li id='trans-text' class='annolet-element' >Translate</li>"+
         "<li class='annolet-element'>"+
             "<select class='select-menu' >"+

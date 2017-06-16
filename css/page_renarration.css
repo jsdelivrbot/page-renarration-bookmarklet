@@ -28,7 +28,7 @@ body{
     overflow: hidden;
 }
 
-#highlighter-btn{
+#highlighter-btn, #phonetics-btn{
     background: white;
     color: black;
     border-color: white;

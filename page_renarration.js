@@ -20,7 +20,7 @@ function annoletContainer(){
         "<li id='zapper' class='annolet-element' >Zapper</li>"+
         "<li id='modify-content' class='annolet-element'>Modify Content</li>"+
         "<li id='highlight-text' class='annolet-element' >"+
-            "<button>Highlighter</button>"+
+            "<button id='highlighter-btn'>Highlighter</button>"+
         "</li>"+
         "<li id='phonetic-trans' class='annolet-element' >Phonetics</li>"+
         "<li id='trans-text' class='annolet-element' >Translate</li>"+

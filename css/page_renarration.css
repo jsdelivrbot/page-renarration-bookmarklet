@@ -7,10 +7,9 @@ body{
   background-color: black !important;
   position: fixed;
   bottom: 0;
-  width: 90%;
+  width: 100%;
   border-radius: 31px 31px 0px 0px;
   z-index: 99999999999;
-  margin-left:10%;
 }
 
 
@@ -29,11 +28,17 @@ body{
     overflow: hidden;
 }
 
+#highlighter-btn{
+    background: white;
+    color: black;
+    border-color: white;
+}
+
 .annolet-element{
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 3px 9px;
+    padding: 3px 21px;
     text-decoration: none;
     font-weight: bold;
     float: left;

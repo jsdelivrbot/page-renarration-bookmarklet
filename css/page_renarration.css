@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+}
+
+#annolet-container{
+  overflow: hidden;
+  background-color: black !important;
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  border-radius: 31px 31px 0px 0px;
+  z-index: 99999999999;
+  margin-left:10%;
+}
+
+
+#annolet-header{
+    text-align:center;
+    color: white !important;
+    text-shadow: 2px -2px 19px #823ae4;
+    font-weight: bold;
+    font-family: Georgia, serif;
+}
+
+#annolet-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.annolet-element{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 3px 9px;
+    text-decoration: none;
+    font-weight: bold;
+    float: left;
+    cursor: pointer;
+}
+
+.annolet-element:hover{
+    background-color:  #302B54;
+    cursor: pointer;
+}
+
+.select-menu:hover{
+    background-color:  #302B54;
+    color: white;
+    cursor: pointer;
+}
+
+.select-menu{
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 1px 2px;
+    text-decoration: none;
+    font-weight: bold;
+    float: left;
+    cursor: pointer;
+    color: black;
+}
+
+
+
+
+
+
+
+
+

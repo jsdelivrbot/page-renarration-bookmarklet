@@ -1,0 +1,17 @@
+*{
+	color: black !important;
+	background: #C98F8F !important;
+}
+
+
+#annolet-container, #annolet-header, .annolet-elements
+{
+	color: inherit !important;
+	background: inherit !important;
+}
+
+
+
+
+
+

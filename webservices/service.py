@@ -3,9 +3,8 @@ from flask import request
 import requests as req
 import bs4
 import pickle
-from dateutil.parser import parse
-from datetime import datetime
 from flask_cors import CORS
+
 app = Flask(__name__)
 CORS(app)
 
@@ -14,7 +13,6 @@ translatekey = 'trnsl.1.1.20160620T044235Z.009e3fdaf079e045.51ec20ede6d14038c2cb
 
 @app.route("/phonetic-trans", methods=['POST'])
 def phonetictrans():
-
     sentence = request.json['sentence']
     words = sentence.split()
     answer = []

@@ -1,3 +1,4 @@
+// Function to create a annolet container 
 function annoletContainer(){
     //appending a div(annolet container) to body element of a webpage.
     var body = document.getElementsByTagName('body')[0];
@@ -9,10 +10,28 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    //using rawgit.com MaxCDN.. files directly linked to git repo 'webpage-transformation/master'
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/7777757a/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/b06e6cf7/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
+
+    //appending jquery to head element of a webpage
+    var script_tag = document.createElement('script');
+    script_tag.type = "text/javascript";
+    script_tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"; 
+    document.getElementsByTagName('head')[0].appendChild(script_tag);
     
+    function getText(){
+        var url = '';
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", url, true);
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xhr.send(null);
+        xhr.onreadystatechange = function() {
+            if (this.readyState==4 && this.status==200) {
+                container.innerHTML = this.responseText;          
+            }
+        }
+    }
+
     //injecting html code
     container.innerHTML = "<h4 id='annolet-header'>Page Renarration...!</h4>"+
     "<ul id='annolet-menu' >"+
@@ -20,7 +39,7 @@ function annoletContainer(){
             "<button id='disable-css' class='annolet-button'>No CSS</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<button id='Zapper' class='annolet-button' >Zapper</button>"+
+            "<button id='zapper' class='annolet-button' >Zapper</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
             "<button id='modify-content' class='annolet-button' >Modify Content</button>"+
@@ -32,21 +51,29 @@ function annoletContainer(){
             "<button id='phonetics-btn' class='annolet-button' >Phonetics</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<button id='trans-text' class='annolet-button' >Translate</button>"+
+            "<select class='select-menu' id='select-lang' >"+
+                "<option value='hi' >Hindi</option>"+
+                "<option value='te' >Telugu</option>"+
+                "<option value='ta' >Tamil</option>"+
+                "<option value='ml' >Malayalam</option>"+
+                "<option value='ja' >Japanese</option>"+
+                "<option value='zh-Hans' >Chinese(Simplified)</option>"+
+            "</select>"+"<br>"+
+            "<h6 style='color:orange;'>Translate Text</h6>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<select class='select-menu' >"+
-                "<option id='theme-1' >Theme1</option>"+
-                "<option id='theme-2' >Theme2</option>"+
-                "<option id='theme-3' >Theme3</option>"+
+            "<select class='select-menu' id='select-theme'>"+
+                "<option value='switch1' >Theme1</option>"+
+                "<option value='switch2' >Theme2</option>"+
+                "<option value='switch3' >Theme3</option>"+
             "</select>"+"<br>"+
             "<h6 style='color:orange;'>Switch CSS</h6>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<select class='select-menu' >"+
-                "<option id='show-links' >Show Links</option>"+
-                "<option id='show-text' >Show Text</option>"+
-                "<option id='show-images' >Show Images</option>"+
+            "<select class='select-menu' id='select-content'>"+
+                "<option value='show-links' >Show Links</option>"+
+                "<option value='show-text' >Show Text</option>"+
+                "<option value='show-images' >Show Images</option>"+
             "</select>"+"<br>"+
             "<h6 style='color:orange;'>Webpage Stripper</h6>"+
         "</li>"+
@@ -61,7 +88,7 @@ function annoletContainer(){
 }
 
 
-// function to disable all links on a webpage.
+// Function to disable all links on a webpage.
 function disableLinks(){
     // Disable all links
     var anchors = document.getElementsByTagName("a");
@@ -70,11 +97,11 @@ function disableLinks(){
     }
 }
 
-//Function to disable the css of a web page.
+// Function to disable the css of a web page.
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/e4c81a95/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/b06e6cf7/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{
@@ -82,7 +109,6 @@ function disableCss(){
         }
     }
 }
-
 
 //Function to erase the unwanted content on a webpage.
 function  Zapper(){
@@ -132,77 +158,63 @@ function phoneticsTrans(){
     var xhr = new XMLHttpRequest();
     if (window.getSelection) 
     {
-        textAPI = window.getSelection().toString();
+        var selected_text= window.getSelection().toString();
     } 
     else if (document.selection && document.selection.type != "Control") {
-        textAPI = document.selection.createRange().text;
+        var selected_text = document.selection.createRange().text;
     }
-    alert(textAPI);
     xhr.open("POST",url,true);
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xhr.send(JSON.stringify({"sentence":textAPI}));
+    xhr.send(JSON.stringify({"sentence":selected_text}));
     xhr.onreadystatechange = function() {
         if (this.readyState==4 && this.status==200) {
             var res = this.responseText;
-            alert(res);
-            var userSelection = window.getSelection();
-            for(var i = 0; i < userSelection.rangeCount; i++) {
-                var newNode = document.createElement("span");
-                // newNode.setAttribute(
-                //    "style",
-                //    "background-color: yellow; display: inline;"
-                // );
-                var newtext = document.createTextNode(res);       // Create a text node
-                newNode.appendChild(newtext);
-                userSelection.getRangeAt(i).surroundContents(newNode);
-            }
-            //document.querySelector('#textarea').innerHTML = res;
+            var selection = window.getSelection();
+            var parent = $(selection.focusNode.parentElement);
+            var oldHtml = parent.html();
+            var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+res+"</span>");
+            parent.html( newHtml );
         }
     }
 }
 
 // Function to translate the selected text to an other language.
-function translateText(){
+function translateText(selected_lang){
     var url = "https://translate.yandex.net/api/v1.5/tr.json/translate",
     keyAPI = "trnsl.1.1.20170315T015859Z.3e04bd9bd31f6f00.99aa35ddf89167a86f5a892014edf632e9cef14f";
-
     var xhr = new XMLHttpRequest();
-    // textAPI = document.querySelector('#source').value,
-    var textAPI = "";
     if (window.getSelection) {
-        textAPI = window.getSelection().toString();
+        var selected_text = window.getSelection().toString();
     } 
     else if (document.selection && document.selection.type != "Control") {
-        textAPI = document.selection.createRange().text;
+        var selected_text = document.selection.createRange().text;
     }
-    alert(textAPI);
-    langAPI = document.querySelector('#lang').value
-    alert(langAPI)
-    data = "key="+keyAPI+"&text="+textAPI+"&lang="+langAPI;
-    alert(data)
+    data = "key="+keyAPI+"&text="+selected_text+"&lang="+selected_lang;
     xhr.open("POST",url,true);
     xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xhr.send(data);
     xhr.onreadystatechange = function() {
-            if (this.readyState==4 && this.status==200) {
-                var res = this.responseText;
-                alert(res);
-                var json = JSON.parse(res);
-                if(json.code == 200) {
-                    //document.querySelector('#textarea').innerHTML = json.text[0];
-                    alert("selected");
-                    alert(json.text[0]);
-                }
-                else {
-                    alert("select text");
-                }
+        if (this.readyState==4 && this.status==200) {
+            var res = this.responseText;
+            var json = JSON.parse(res);
+            if(json.code == 200) {
+                var changed_text = json.text[0];
+                var selection = window.getSelection();
+                var parent = $(selection.focusNode.parentElement);
+                var oldHtml = parent.html();
+                var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+changed_text+"</span>");
+                parent.html( newHtml );
             }
+            else {
+                alert("select text");
+            }
+        }
     }
 }
 
 // Creates alternate stylesheets to switch the themes on a web page.
-function alternateStylesheets(){
+function alternateStylesheets(selected_theme){
     //appending a CSS alternate stylesheets to head element of a webpage.
     var i= 0;
     var style_sheets = 3; 
@@ -220,6 +232,7 @@ function alternateStylesheets(){
         head  = document.getElementsByTagName('head')[0];
         head.appendChild(linktag);
     }
+    switchStyle(selected_theme)
 }
 
 function switchStyle(css_title)
@@ -236,16 +249,40 @@ function switchStyle(css_title)
    }
 }
 
-/* Function loops through all the elements in a web page and displays elements which has text content
-and rest of the content is made hidden. */  
-function showText() {
+/* Function to display the selected content on the web page and rest of the content is made hidden. */  
+function showContent(selected_content){
     var all = document.getElementsByTagName("*");
-    for (var i=0, max=all.length; i < max; i++) {
-        if(all[i].innerHTML){
-            all[i].style.visibility = 'visible';
+    if(selected_content == 'show-links'){
+        for (var i=0, max=all.length; i < max; i++) {
+            var href_attribute = all[i].hasAttribute("href");
+            var src_attribute = all[i].hasAttribute("src");
+            if(href_attribute == false && src_attribute == false){
+                all[i].style.visibility = 'hidden';
+            }
+            else if(href_attribute == true || src_attribute == true){
+                all[i].style.visibility = 'visible';
+            }
         }
-        else{
-            all[i].style.visibility = 'hidden';
+    }
+    else if(selected_content == 'show-text') {
+        for (var i=0, max=all.length; i < max; i++) {
+            if(all[i].innerHTML){
+                all[i].style.visibility = 'visible';
+            }
+            else{
+                all[i].style.visibility = 'hidden';
+            }
+        }
+    }
+    else if(selected_content == 'show-images') {
+        for (var i=0, max=all.length; i < max; i++) {
+            var src_attribute = all[i].hasAttribute("src");
+            if(src_attribute == false){
+                all[i].style.visibility = 'hidden';
+            }
+            else if(src_attribute == true){
+                all[i].style.visibility = 'visible';
+            }
         }
     }
 
@@ -256,72 +293,6 @@ function showText() {
     for(var i = 0; i < children.length; i++){
         children[i].style.visibility = 'visible';
     }
-}
-
-/*Function loops through all the elements in a web page and displays elements which has links
-and rest of the content is made hidden. */  
-function showLinks() {
-    var all = document.getElementsByTagName("*");
-    for (var i=0, max=all.length; i < max; i++) {
-        var href_attribute = all[i].hasAttribute("href");
-        var src_attribute = all[i].hasAttribute("src");
-        if(href_attribute == false && src_attribute == false){
-            all[i].style.visibility = 'hidden';
-        }
-        else if(href_attribute == true || src_attribute == true){
-            all[i].style.visibility = 'visible';
-        }
-    }
-
-    //get the menu bar id 
-    document.getElementById('annolet-container').style.visibility='visible';
-    var children = document.getElementById('annolet-container').children;
-    //This will make all children elements of div visible. 
-    for(var i = 0; i < children.length; i++){
-        children[i].style.visibility = 'visible';
-    }
-}
-
-/* Function loops through all the elements in a web page and displays image elements 
-and rest of the content is made hidden. */  
-function showImages() {
-    var all = document.getElementsByTagName("*");
-    for (var i=0, max=all.length; i < max; i++) {
-        var src_attribute = all[i].hasAttribute("src");
-        if(src_attribute == false){
-            all[i].style.visibility = 'hidden';
-        }
-        else if(src_attribute == true){
-            all[i].style.visibility = 'visible';
-        }
-    }
-
-    //get the menu bar id 
-    document.getElementById('annolet-container').style.visibility='visible';
-    var children = document.getElementById('annolet-container').children;
-    //This will make all children elements of div visible. 
-    for(var i = 0; i < children.length; i++){
-        children[i].style.visibility = 'visible';
-    }
-
-}
-
-// Injecting google translate api src into head element of a webpage.
-function langTrans(){
-    //appending a script tag to head of webpage
-    var script = document.createElement('script');
-    script.type = "text/javascript";
-    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-    document.getElementsByTagName('head')[0].appendChild(script);
-
-    //Create a language translation dropdown div and append in annolet menu bar.
-    div = document.createElement('div');
-    div.id = 'google_translate_element';
-    document.getElementsByTagName('body')[0].appendChild(div);
-}
-
-function googleTranslateElementInit() {
-   new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 }
 
 // Function to increase/decrease the font size of the content.
@@ -336,6 +307,24 @@ function changeFontsize(){
         $('body').css('font-size',fontSize+'px');
     })
 }
+
+//Function to translate the whole web page into a selected language using google Translator API.
+// function langTrans(){
+//     //appending a script tag to head of webpage
+//     var script = document.createElement('script');
+//     script.type = "text/javascript";
+//     script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+//     document.getElementsByTagName('head')[0].appendChild(script);
+
+//     //Create a language translation dropdown div and append in annolet menu bar.
+//     div = document.createElement('div');
+//     div.id = 'google_translate_element';
+//     document.getElementsByTagName('body')[0].appendChild(div);
+// }
+
+// function googleTranslateElementInit() {
+//    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+// }
 
 // Function to add click events to the annolet elements.
 function addClickevents(){
@@ -354,36 +343,22 @@ function addClickevents(){
     document.getElementById('phonetics-btn').addEventListener('click', function() {
         phoneticsTrans()
     }, false);
-    document.getElementById('trans-text').addEventListener('click', function() {
-        translateText()
+    document.getElementById('select-lang').addEventListener('change', function() {
+        translateText(this.value)
     }, false);
-    document.getElementById('theme-1').addEventListener('click', function() {
-        switchStyle('switch1')
+    document.getElementById('select-theme').addEventListener('change', function() {
+        alternateStylesheets(this.value)
     }, false);
-    document.getElementById('theme-2').addEventListener('click', function() {
-        switchStyle('switch2')
-    }, false);
-    document.getElementById('theme-3').addEventListener('click', function() {
-        switchStyle('switch3')
-    }, false);
-    document.getElementById('show-text').addEventListener('click', function() {
-        showText()
-    }, false);
-    document.getElementById('show-links').addEventListener('click', function() {
-        showLinks()
-    }, false);
-    document.getElementById('show-images').addEventListener('click', function() {
-        showImages()
+    document.getElementById('select-content').addEventListener('change', function() {
+        showContent(this.value)
     }, false);
 }
-
 
 window.onload = function() {
     annoletContainer()
     disableLinks()
     addClickevents()
-    alternateStylesheets()
-    langTrans()
     changeFontsize()
+    //langTrans()
 };
-   
+        

@@ -37,31 +37,31 @@ body{
 }
 
 .annolet-button{
-    background: white !important;
-    color: black !important;
-    border-color: white !important;
+    background: orange !important;
+    color: white !important;
+    border-color: orange !important;
     cursor: pointer;
 }
 
 .annolet-button:hover{
-    background: orange !important;
-    color: white !important;
-}
-
-.select-menu:hover{
-    background-color:orange !important;
-    color: white !important;
-    cursor: pointer;
+    background: white !important;
+    color: black !important;
 }
 
 .select-menu{
     display: inline-block;
-    color: black !important;
+    background-color: orange !important;
+    color: white !important;
     text-align: center;
     padding: 1px 2px;
     text-decoration: none;
     font-weight: bold;
     float: left;
+}
+
+.select-menu:hover{
+    background-color:white !important;
+    color: black !important;
     cursor: pointer;
 }
 

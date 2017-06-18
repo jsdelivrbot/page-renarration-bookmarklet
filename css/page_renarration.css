@@ -9,9 +9,8 @@ body{
   bottom: 0;
   width: 100%;
   border-radius: 31px 31px 0px 0px;
-  z-index: 99999999999;
+  z-index: 99999999999999999999999;
 }
-
 
 #annolet-header{
     text-align:center;
@@ -28,25 +27,23 @@ body{
     overflow: hidden;
 }
 
-#highlighter-btn, #phonetics-btn{
-    background: white;
-    color: black;
-    border-color: white;
-}
-
 .annolet-element{
     display: inline-block;
-    color: white;
     text-align: center;
     padding: 3px 21px;
     text-decoration: none;
     font-weight: bold;
     float: left;
-    cursor: pointer;
 }
 
 .annolet-element:hover{
     background-color:  #302B54;
+}
+
+.annolet-button{
+    background: white;
+    color: black;
+    border-color: white;
     cursor: pointer;
 }
 

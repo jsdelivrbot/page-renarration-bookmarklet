@@ -48,7 +48,7 @@ body{
 }
 
 .select-menu:hover{
-    background-color:  #302B54;
+    background-color:  red;
     color: white;
     cursor: pointer;
 }

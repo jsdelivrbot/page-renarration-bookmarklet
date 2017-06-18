@@ -10,7 +10,7 @@ function annoletContainer(){
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
     //using rawgit.com MaxCDN.. files directly linked to git repo 'webpage-transformation/master'
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/92293160/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/00342e39/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
     
     //injecting html code

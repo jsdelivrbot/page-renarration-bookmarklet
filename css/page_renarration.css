@@ -37,18 +37,18 @@ body{
 }
 
 .annolet-button{
-    background: white;
+    background-color: white;
     color: black;
     border-color: white;
     cursor: pointer;
 }
 
-.annolet-button:hover{
+/*.annolet-button:hover{
     background-color: #302B54 !important;
-}
+}*/
 
 .select-menu:hover{
-    background-color:  red;
+    background-color:orange;
     color: white;
     cursor: pointer;
 }
@@ -62,7 +62,6 @@ body{
     font-weight: bold;
     float: left;
     cursor: pointer;
-    color: black;
 }
 
 

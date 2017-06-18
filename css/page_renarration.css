@@ -37,25 +37,26 @@ body{
 }
 
 .annolet-button{
-    background: white;
-    color: black;
-    border-color: white;
+    background: white !important;
+    color: black !important;
+    border-color: white !important;
     cursor: pointer;
 }
 
 .annolet-button:hover{
-    background: #302B54 !important;
+    background: orange !important;
+    color: white !important;
 }
 
 .select-menu:hover{
-    background-color:orange;
-    color: white;
+    background-color:orange !important;
+    color: white !important;
     cursor: pointer;
 }
 
 .select-menu{
     display: inline-block;
-    color: black;
+    color: black !important;
     text-align: center;
     padding: 1px 2px;
     text-decoration: none;

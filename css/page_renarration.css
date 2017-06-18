@@ -44,7 +44,7 @@ body{
 }
 
 .annolet-button:hover{
-    background-color: orange;
+    background-color: #302B54 !important;
 }
 
 .select-menu:hover{

@@ -10,20 +10,20 @@ function annoletContainer(){
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
     //using rawgit.com MaxCDN.. files directly linked to git repo 'webpage-transformation/master'
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/e4c81a95/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/1c942319/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
     
     //injecting html code
     container.innerHTML = "<h4 id='annolet-header'>Page Renarration...!</h4>"+
     "<ul id='annolet-menu' >"+
         "<li class='annolet-element'>"+
-            "<button id='disable-css' class='annolet-button'>dsfdsf</button>"
+            "<button id='disable-css' class='annolet-button'>dsfdsf</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<button id='Zapper' class='annolet-button' >Zapper</button>"
+            "<button id='Zapper' class='annolet-button' >Zapper</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<button id='modify-content' class='annolet-button' >Modify Content</button>"
+            "<button id='modify-content' class='annolet-button' >Modify Content</button>"+
         "</li>"+
         "<li class='annolet-element' >"+
             "<button id='highlighter-btn' class='annolet-button' >Highlighter</button>"+
@@ -32,7 +32,7 @@ function annoletContainer(){
             "<button id='phonetics-btn' class='annolet-button' >Phonetics</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<button id='trans-text' class='annolet-button' >Translate</button>"
+            "<button id='trans-text' class='annolet-button' >Translate</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
             "<select class='select-menu' >"+

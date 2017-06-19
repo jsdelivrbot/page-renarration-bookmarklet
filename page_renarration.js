@@ -274,29 +274,37 @@ function changeFontsize(){
 //    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 // }
 
-currencyConversion("INR", "USD", "1")
-function currencyConversion(from_cur, to_cur, amount){
+//currencyConversion("INR", "USD", "1")
+function currencyConversion(){
+    
     var url = "//localhost:5000/currency-conversion"
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    from_cur = document.getElementById("select_from_cur").value();
+    to_cur = document.getElementById("select_to_cur").value();
+    if (window.getSelection) 
+    {
+        var amount= window.getSelection().toString();
+    } 
+    else if (document.selection && document.selection.type != "Control") {
+        var amount = document.selection.createRange().text;
+    }
     xhr.send(JSON.stringify({"from_cur":from_cur, "to_cur":to_cur, "amount": amount}));
     xhr.onreadystatechange = function() {
         if (this.readyState==4 && this.status==200) {
             var res = this.responseText;
             alert(res);
-            console.log(typeof res);
             currency_data = JSON.parse(res);
-            console.log(typeof currency_data);
-            console.log(currency_data["results"]);
             cur_value =currency_data["results"];
             console.log(cur_value[from_cur+"_"+to_cur]["val"]);
-            // var selection = window.getSelection();
-            // var parent = $(selection.focusNode.parentElement);
-            // var oldHtml = parent.html();
-            // var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+res+"</span>");
-            // parent.html( newHtml );
+            changed_cur = cur_value[from_cur+"_"+to_cur]["val"]
+            var selection = window.getSelection();
+            var parent = $(selection.focusNode.parentElement);
+            var oldHtml = parent.html();
+            var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+changed_text+"</span>");
+            parent.html( newHtml );
         }
     }
 }
@@ -327,9 +335,9 @@ function addClickevents(){
     document.getElementById('select-content').addEventListener('change', function() {
         showContent(this.value)
     }, false);
-    // document.getElementById('select-content').addEventListener('change', function() {
-    //     showContent(this.value)
-    // }, false);
+    document.getElementsByClassName('select-currency').addEventListener('change', function() {
+        currencyConversion();
+    }, false);
 }
 
 window.onload = function() {

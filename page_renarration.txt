@@ -50,7 +50,7 @@
             <h6 style='color:orange;'>Visibility</h6>
         </li>
         <li class='annolet-element'>
-            <select class='select-menu select-currency' id='select_from_cur'>
+            <select class='select-menu select-currency' id='select-from-cur'>
                 <option value="AED">AED</option>
                 <option value="AFN">AFN</option>
                 <option value="ALL">ALL</option>
@@ -91,7 +91,7 @@
                 <option value="SHP">SHP</option>
                 <option value="SLL">SLL</option>
             </select>
-            <select class='select-menu select-currency' id='select_to_cur'>
+            <select class='select-menu select-currency' id='select-to-cur'>
                 <option value="AED">AED</option>
                 <option value="AFN">AFN</option>
                 <option value="ALL">ALL</option>

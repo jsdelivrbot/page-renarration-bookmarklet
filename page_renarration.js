@@ -25,7 +25,7 @@ function annoletContainer(){
 
 
 function getText(){
-    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/5deaec14/page_renarration.txt';
+    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c98a3dd3/page_renarration.txt';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.send(null);
@@ -276,37 +276,37 @@ function changeFontsize(){
 
 //currencyConversion("INR", "USD", "1")
 function currencyConversion(){
-    
-    var url = "//localhost:5000/currency-conversion"
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    from_cur = document.getElementById("select_from_cur").value();
-    to_cur = document.getElementById("select_to_cur").value();
-    if (window.getSelection) 
-    {
-        var amount= window.getSelection().toString();
-    } 
-    else if (document.selection && document.selection.type != "Control") {
-        var amount = document.selection.createRange().text;
-    }
-    xhr.send(JSON.stringify({"from_cur":from_cur, "to_cur":to_cur, "amount": amount}));
-    xhr.onreadystatechange = function() {
-        if (this.readyState==4 && this.status==200) {
-            var res = this.responseText;
-            alert(res);
-            currency_data = JSON.parse(res);
-            cur_value =currency_data["results"];
-            console.log(cur_value[from_cur+"_"+to_cur]["val"]);
-            changed_cur = cur_value[from_cur+"_"+to_cur]["val"]
-            var selection = window.getSelection();
-            var parent = $(selection.focusNode.parentElement);
-            var oldHtml = parent.html();
-            var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+changed_text+"</span>");
-            parent.html( newHtml );
-        }
-    }
+    alert("hello");
+    // var url = "//localhost:5000/currency-conversion"
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("POST", url, true);
+    // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    // xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    // from_cur = document.getElementById("select_from_cur").value();
+    // to_cur = document.getElementById("select_to_cur").value();
+    // if (window.getSelection) 
+    // {
+    //     var amount= window.getSelection().toString();
+    // } 
+    // else if (document.selection && document.selection.type != "Control") {
+    //     var amount = document.selection.createRange().text;
+    // }
+    // xhr.send(JSON.stringify({"from_cur":from_cur, "to_cur":to_cur, "amount": amount}));
+    // xhr.onreadystatechange = function() {
+    //     if (this.readyState==4 && this.status==200) {
+    //         var res = this.responseText;
+    //         alert(res);
+    //         currency_data = JSON.parse(res);
+    //         cur_value =currency_data["results"];
+    //         console.log(cur_value[from_cur+"_"+to_cur]["val"]);
+    //         changed_cur = cur_value[from_cur+"_"+to_cur]["val"]
+    //         var selection = window.getSelection();
+    //         var parent = $(selection.focusNode.parentElement);
+    //         var oldHtml = parent.html();
+    //         var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+changed_text+"</span>");
+    //         parent.html( newHtml );
+    //     }
+    // }
 }
 
 // Function to add click events to the annolet elements.
@@ -335,9 +335,12 @@ function addClickevents(){
     document.getElementById('select-content').addEventListener('change', function() {
         showContent(this.value)
     }, false);
-    document.getElementsByClassName('select-currency').addEventListener('change', function() {
-        currencyConversion();
+    document.getElementById('select-from-cur').addEventListener('click', function() {
+        currencyConversion()
     }, false);
+    // document.getElementById('select_to_cur').addEventListener('change', function() {
+    //     currencyConversion()
+    // }, false);
 }
 
 window.onload = function() {

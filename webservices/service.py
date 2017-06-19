@@ -24,5 +24,30 @@ def phonetictrans():
             answer.append(word)
 	return " ".join(answer)
 
+currency_key = '54f53c7dfcde68edca973db6cec90ba1'
+@app.route("/currency-conversion", methods=['POST'])
+def currencyconversion():
+    try:
+        from_cur = request.json['from_cur']
+        print from_cur
+    except:
+        return "from_cur parameter not passed"
+    try :
+        to_cur = request.json['to_cur']
+        print to_cur
+    except:
+        return "to_cur parameter not passed"
+    try :
+        amount = request.json['amount']
+        print amount
+    except:
+        return "amount parameter not passed"
+    #res = req.get('https://www.google.com/finance/converter?a=60&from=INR&to=UAH&meta=ei%3DrSlHWeHxI8KXuATylqUI')
+    res = req.get('http://free.currencyconverterapi.com/api/v3/convert?q='+from_cur+'_'+to_cur+'&amount='+amount)
+    soup = bs4.BeautifulSoup(res.text)
+    ret = soup.text
+    return ret;
+    
+
 if __name__ == '__main__':
    app.run()

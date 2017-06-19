@@ -49,4 +49,90 @@
             </select><br>
             <h6 style='color:orange;'>Visibility</h6>
         </li>
+        <li class='annolet-element'>
+            <select class='select-menu' id='select_from_cur'>
+                <option value="AED">AED</option>
+                <option value="AFN">AFN</option>
+                <option value="ALL">ALL</option>
+                <option value="AMD">AMD</option>
+                <option value="EUR">EUR</option>
+                <option value="INR">INR</option>
+                <option value="MUR">MUR</option>
+                <option value="MVR">MVR</option>
+                <option value="MWK">MWK</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="MZN">MZN</option>
+                <option value="NAD">NAD</option>
+                <option value="NGN">NGN</option>
+                <option value="NIO">NIO</option>
+                <option value="NOK">NOK</option>
+                <option value="NPR">NPR</option>
+                <option value="NZD">NZD</option>
+                <option value="OMR">OMR</option>
+                <option value="PAB">PAB</option>
+                <option value="PEN">PEN</option>
+                <option value="PGK">PGK</option>
+                <option value="PHP">PHP</option>
+                <option value="PKR">PKR</option>
+                <option value="PLN">PLN</option>
+                <option value="PYG">PYG</option>
+                <option value="QAR">QAR</option>
+                <option value="RON">RON</option>
+                <option value="RSD">RSD</option>
+                <option value="RUB">RUB</option>
+                <option value="RWF">RWF</option>
+                <option value="SAR">SAR</option>
+                <option value="SBD">SBD</option>
+                <option value="SCR">SCR</option>
+                <option value="SDG">SDG</option>
+                <option value="SEK">SEK</option>
+                <option value="SGD">SGD</option>
+                <option value="SHP">SHP</option>
+                <option value="SLL">SLL</option>
+            </select>
+            <p>to</p>
+            <select class='select-menu' id="select_to_cur">
+                <option value="AED">AED</option>
+                <option value="AFN">AFN</option>
+                <option value="ALL">ALL</option>
+                <option value="AMD">AMD</option>
+                <option value="EUR">EUR</option>
+                <option value="INR">INR</option>
+                <option value="MUR">MUR</option>
+                <option value="MVR">MVR</option>
+                <option value="MWK">MWK</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="MZN">MZN</option>
+                <option value="NAD">NAD</option>
+                <option value="NGN">NGN</option>
+                <option value="NIO">NIO</option>
+                <option value="NOK">NOK</option>
+                <option value="NPR">NPR</option>
+                <option value="NZD">NZD</option>
+                <option value="OMR">OMR</option>
+                <option value="PAB">PAB</option>
+                <option value="PEN">PEN</option>
+                <option value="PGK">PGK</option>
+                <option value="PHP">PHP</option>
+                <option value="PKR">PKR</option>
+                <option value="PLN">PLN</option>
+                <option value="PYG">PYG</option>
+                <option value="QAR">QAR</option>
+                <option value="RON">RON</option>
+                <option value="RSD">RSD</option>
+                <option value="RUB">RUB</option>
+                <option value="RWF">RWF</option>
+                <option value="SAR">SAR</option>
+                <option value="SBD">SBD</option>
+                <option value="SCR">SCR</option>
+                <option value="SDG">SDG</option>
+                <option value="SEK">SEK</option>
+                <option value="SGD">SGD</option>
+                <option value="SHP">SHP</option>
+                <option value="SLL">SLL</option>
+            </select><br>
+            <h6 style='color:orange;'>Currency Converter</h6>
+        </li>
     </ul>

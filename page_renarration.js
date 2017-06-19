@@ -19,68 +19,15 @@ function annoletContainer(){
     script_tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"; 
     document.getElementsByTagName('head')[0].appendChild(script_tag);
 
-    //injecting html code
-    // container.innerHTML = "<h4 id='annolet-header'>Page Renarration...!</h4>"+
-    // "<ul id='annolet-menu' >"+
-    //     "<li class='annolet-element'>"+
-    //         "<button id='disable-css' class='annolet-button'>No CSS</button>"+
-    //     "</li>"+
-    //     "<li class='annolet-element'>"+
-    //         "<button id='zapper' class='annolet-button' >Zapper</button>"+
-    //     "</li>"+
-    //     "<li class='annolet-element'>"+
-    //         "<button id='modify-content' class='annolet-button' >Modify Content</button>"+
-    //     "</li>"+
-    //     "<li class='annolet-element' >"+
-    //         "<button id='highlighter-btn' class='annolet-button' >Highlighter</button>"+
-    //     "</li>"+
-    //     "<li class='annolet-element' >"+
-    //         "<button id='phonetics-btn' class='annolet-button' >Phonetics</button>"+
-    //     "</li>"+
-    //     "<li class='annolet-element'>"+
-    //         "<select class='select-menu' id='select-lang' >"+
-    //             "<option value='hi' >Hindi</option>"+
-    //             "<option value='te' >Telugu</option>"+
-    //             "<option value='ta' >Tamil</option>"+
-    //             "<option value='ml' >Malayalam</option>"+
-    //             "<option value='ja' >Japanese</option>"+
-    //             "<option value='zh-Hans' >Chinese(Simplified)</option>"+
-    //         "</select>"+"<br>"+
-    //         "<h6 style='color:orange;'>Translate Text</h6>"+
-    //     "</li>"+
-    //     "<li class='annolet-element'>"+
-    //         "<select class='select-menu' id='select-theme'>"+
-    //             "<option value='switch1' >Theme1</option>"+
-    //             "<option value='switch2' >Theme2</option>"+
-    //             "<option value='switch3' >Theme3</option>"+
-    //         "</select>"+"<br>"+
-    //         "<h6 style='color:orange;'>Switch CSS</h6>"+
-    //     "</li>"+
-    //     "<li class='annolet-element'>"+
-    //         "<select class='select-menu' id='select-content'>"+
-    //             "<option value='show-links' >Show Links</option>"+
-    //             "<option value='show-text' >Show Text</option>"+
-    //             "<option value='show-images' >Show Images</option>"+
-    //         "</select>"+"<br>"+
-    //         "<h6 style='color:orange;'>Webpage Stripper</h6>"+
-    //     "</li>"+
-    //     "<li class='annolet-element'>"+
-    //         "<select class='select-menu' >"+
-    //             "<option id='increase-font' >Increase Font</option>"+
-    //             "<option id='decrease-font' >Decrease Font</option>"+
-    //         "</select>"+"<br>"+
-    //         "<h6 style='color:orange;'>Visibility</h6>"+
-    //     "</li>"+
-    // "</ul>";
-    //container.innerHTML = getText();
+    //Function to put the html code inside an annolet container
     getText()
 }
 
+
 function getText(){
-    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/94b04819/page_renarration.txt';
+    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/020c2fde/page_renarration.txt';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
-    //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.send(null);
     xhr.onreadystatechange = function() {
         if (this.readyState==4 && this.status==200) {
@@ -88,7 +35,6 @@ function getText(){
         }
     }
 }
-
 
 // Function to disable all links on a webpage.
 function disableLinks(){
@@ -328,6 +274,33 @@ function changeFontsize(){
 //    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 // }
 
+currencyConversion("INR", "USD", "1")
+function currencyConversion(from_cur, to_cur, amount){
+    var url = "//localhost:5000/currency-conversion"
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.send(JSON.stringify({"from_cur":from_cur, "to_cur":to_cur, "amount": amount}));
+    xhr.onreadystatechange = function() {
+        if (this.readyState==4 && this.status==200) {
+            var res = this.responseText;
+            alert(res);
+            console.log(typeof res);
+            currency_data = JSON.parse(res);
+            console.log(typeof currency_data);
+            console.log(currency_data["results"]);
+            cur_value =currency_data["results"];
+            console.log(cur_value[from_cur+"_"+to_cur]["val"]);
+            // var selection = window.getSelection();
+            // var parent = $(selection.focusNode.parentElement);
+            // var oldHtml = parent.html();
+            // var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+res+"</span>");
+            // parent.html( newHtml );
+        }
+    }
+}
+
 // Function to add click events to the annolet elements.
 function addClickevents(){
     document.getElementById('disable-css').addEventListener('click', function() {
@@ -354,6 +327,9 @@ function addClickevents(){
     document.getElementById('select-content').addEventListener('change', function() {
         showContent(this.value)
     }, false);
+    // document.getElementById('select-content').addEventListener('change', function() {
+    //     showContent(this.value)
+    // }, false);
 }
 
 window.onload = function() {

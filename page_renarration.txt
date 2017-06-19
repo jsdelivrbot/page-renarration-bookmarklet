@@ -22,7 +22,7 @@
                 <option value='ta' >Tamil</option>
                 <option value='ml' >Malayalam</option>
                 <option value='ja' >Japanese</option>
-                <option value='zh-Hans' >Chinese(Simplified)</option>
+                <option value='zh-Hans' >Chinese</option>
             </select><br>
             <h6 style='color:orange;'>Translate Text</h6>
         </li>
@@ -91,7 +91,6 @@
                 <option value="SHP">SHP</option>
                 <option value="SLL">SLL</option>
             </select>
-            <p>to</p>
             <select class='select-menu' id="select_to_cur">
                 <option value="AED">AED</option>
                 <option value="AFN">AFN</option>

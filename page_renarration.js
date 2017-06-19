@@ -25,7 +25,7 @@ function annoletContainer(){
 
 
 function getText(){
-    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/bb28d876/page_renarration.txt';
+    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/5deaec14/page_renarration.txt';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.send(null);

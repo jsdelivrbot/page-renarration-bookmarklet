@@ -25,7 +25,7 @@ function annoletContainer(){
 
 
 function getText(){
-    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c98a3dd3/page_renarration.txt';
+    var url = 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/9b457a7e/page_renarration.txt';
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     xhr.send(null);
@@ -335,9 +335,10 @@ function addClickevents(){
     document.getElementById('select-content').addEventListener('change', function() {
         showContent(this.value)
     }, false);
-    document.getElementById('select-from-cur').addEventListener('click', function() {
-        currencyConversion()
-    }, false);
+    // document.getElementById('select-from-cur').addEventListener('click', function() {
+    //     //currencyConversion()
+    //     console.log("hello.....");
+    // }, false);
     // document.getElementById('select_to_cur').addEventListener('change', function() {
     //     currencyConversion()
     // }, false);

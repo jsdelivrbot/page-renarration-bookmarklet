@@ -40,15 +40,23 @@ function annoletContainer(){
             "<button id='phonetics-btn' class='annolet-button' >Phonetics</button>"+
         "</li>"+
         "<li class='annolet-element'>"+
-            "<select class='select-menu' id='select-lang' >"+
+            "<select class='select-menu' id='select-from-lang' >"+
                 "<option value='hi' >Hindi</option>"+
                 "<option value='te' >Telugu</option>"+
                 "<option value='ta' >Tamil</option>"+
                 "<option value='ml' >Malayalam</option>"+
                 "<option value='ja' >Japanese</option>"+
-                "<option value='zh-Hans' >Chinese(Simplified)</option>"+
+                "<option value='zh-Hans' >Chinese</option>"+
+            "</select>"+
+            "<select class='select-menu' id='select-to-lang' >"+
+                "<option value='hi' >Hindi</option>"+
+                "<option value='te' >Telugu</option>"+
+                "<option value='ta' >Tamil</option>"+
+                "<option value='ml' >Malayalam</option>"+
+                "<option value='ja' >Japanese</option>"+
+                "<option value='zh-Hans' >Chinese</option>"+
             "</select>"+"<br>"+
-            "<h6 style='color:orange;'>Translate Text</h6>"+
+            "<h6 style='color:orange;cursor:pointer'>Translate Text</h6>"+
         "</li>"+
         "<li class='annolet-element'>"+
             "<select class='select-menu' id='select-theme'>"+
@@ -224,11 +232,13 @@ function translateText(){
     else if (document.selection && document.selection.type != "Control") {
         var selected_text = document.selection.createRange().text;
     }
+    var from = document.getElementById("select-from-lang").value;
+    var to = document.getElementById("select-to-lang").value;
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "//localhost:5000/language-translive", true); 
     xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xhr.send(JSON.stringify({"sentence":selected_text,"from-language":"en","to-language":"hi"}));
+    xhr.send(JSON.stringify({"sentence":selected_text,"from-language":from,"to-language":to}));
     xhr.onreadystatechange = processRequest;
     function processRequest(e)
     {

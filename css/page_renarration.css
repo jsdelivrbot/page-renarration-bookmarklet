@@ -62,7 +62,6 @@ body{
 .select-menu:hover{
     background-color:white !important;
     color: black !important;
-    cursor: pointer;
 }
 
 

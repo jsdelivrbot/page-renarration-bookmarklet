@@ -16,7 +16,15 @@
             <button id='phonetics-btn' class='annolet-button' >Phonetics</button>
         </li>
         <li class='annolet-element'>
-            <select class='select-menu' id='select-lang' >
+            <select class='select-menu' id='select-from-lang' >
+                <option value='hi' >Hindi</option>
+                <option value='te' >Telugu</option>
+                <option value='ta' >Tamil</option>
+                <option value='ml' >Malayalam</option>
+                <option value='ja' >Japanese</option>
+                <option value='zh-Hans' >Chinese</option>
+            </select><br>
+            <select class='select-menu' id='select-to-lang' >
                 <option value='hi' >Hindi</option>
                 <option value='te' >Telugu</option>
                 <option value='ta' >Tamil</option>

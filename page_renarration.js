@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/f400fbcd/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/af614e44/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -21,25 +21,25 @@ function annoletContainer(){
 
     //injecting html code
     container.innerHTML = "<h6 id='annolet-header'>Page Renarration</h6>"+
-    "<ul id='annolet-menu' >"+
-        "<li class='annolet-element'>"+
-            "<button id='disable-css' class='annolet-button'>No CSS</button>"+
+    "<ul id='annolet-tools-menu' >"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='disable-css' class='annolet-menu-sub-item'>No CSS</button>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='zapper' class='annolet-button' >Zapper</button>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='zapper' class='annolet-menu-sub-item' >Zapper</button>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='modify-content' class='annolet-button' >Modify Content</button>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='modify-content' class='annolet-menu-sub-item' >Modify Content</button>"+
         "</li>"+
-        "<li class='annolet-element' >"+
-            "<button id='highlighter-btn' class='annolet-button' >Highlighter</button>"+
+        "<li class='annolet-menu-item' >"+
+            "<button id='highlighter-btn' class='annolet-menu-sub-item' >Highlighter</button>"+
         "</li>"+
-        "<li class='annolet-element' >"+
-            "<button id='phonetics-btn' class='annolet-button' >Phonetics</button>"+
+        "<li class='annolet-menu-item' >"+
+            "<button id='phonetics-btn' class='annolet-menu-sub-item' >Phonetics</button>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='trans-text' class='annolet-button' >Translate Text</button>"+"<br>"+
-            "<select class='select-menu' id='select-from-lang'>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='trans-text' class='annolet-menu-sub-item' >Translate Text</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-from-lang'>"+
                 "<option value='en' >English</option>"+
                 "<option value='hi' >Hindi</option>"+
                 "<option value='te' >Telugu</option>"+
@@ -48,7 +48,7 @@ function annoletContainer(){
                 "<option value='ja' >Japanese</option>"+
                 "<option value='zh-Hans' >Chinese</option>"+
             "</select>"+
-            "<select class='select-menu' id='select-to-lang'>"+
+            "<select class='select-tools-menu' id='select-to-lang'>"+
                 "<option value='en' >English</option>"+
                 "<option value='hi' >Hindi</option>"+
                 "<option value='te' >Telugu</option>"+
@@ -58,54 +58,54 @@ function annoletContainer(){
                 "<option value='zh-Hans' >Chinese</option>"+
             "</select>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='change-theme' class='annolet-button'>Switch CSS</button>"+"<br>"+
-            "<select class='select-menu' id='select-theme'>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='change-theme' class='annolet-menu-sub-item'>Switch CSS</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-theme'>"+
                 "<option value='switch1' >Theme1</option>"+
                 "<option value='switch2' >Theme2</option>"+
                 "<option value='switch3' >Theme3</option>"+
             "</select>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='change-content' class='annolet-button' >Page Stripper</button>"+"<br>"+
-            "<select class='select-menu' id='select-content'>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='change-content' class='annolet-menu-sub-item' >Page Stripper</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-content'>"+
                 "<option value='show-links' >Show Links</option>"+
                 "<option value='show-text' >Show Text</option>"+
                 "<option value='show-images' >Show Images</option>"+
             "</select>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='change-font' class='annolet-button' >Visibility</button>"+"<br>"+
-            "<select class='select-menu' id='select-font'>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='change-font' class='annolet-menu-sub-item' >Visibility</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-font'>"+
                 "<option value='increase-font' >Increase Font</option>"+
                 "<option value='decrease-font' >Decrease Font</option>"+
             "</select>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='change-currency' class='annolet-button' >Convert Currency</button>"+"<br>"+
-            "<select class='select-menu' id='select-from-currency'>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='change-currency' class='annolet-menu-sub-item' >Convert Currency</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-from-currency'>"+
                 "<option value='USD' >USD</option>"+
                 "<option value='INR' >INR</option>"+
             "</select>"+
-            "<select class='select-menu' id='select-to-currency'>"+
+            "<select class='select-tools-menu' id='select-to-currency'>"+
                 "<option value='USD' >USD</option>"+
                 "<option value='INR' >INR</option>"+
             "</select>"+
         "</li>"+
-        "<li class='annolet-element'>"+
-            "<button id='change-measurement' class='annolet-button' >Convert Measurements</button>"+"<br>"+
-            "<select class='select-menu' id='select-from-measure'>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='change-measurement' class='annolet-menu-sub-item' >Convert Measurements</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-from-measure'>"+
                 "<option value='miles'>Miles</option>"+
                 "<option value='foot' >Foot</option>"+
             "</select>"+
-            "<select class='select-menu' id='select-to-measure'>"+
+            "<select class='select-tools-menu' id='select-to-measure'>"+
                 "<option value='meters' >meters</option>"+
                 "<option value='kilograms' >kilograms</option>"+
             "</select>"+
         "</li>"+
-    	"<li class='annolet-element'>"+
-            "<button id='change-num-sys' class='annolet-button' >Convert Num sys</button>"+"<br>"+
-            "<select class='select-menu' id='select-num-sys'>"+
+    	"<li class='annolet-menu-item'>"+
+            "<button id='change-num-sys' class='annolet-menu-sub-item' >Convert Num sys</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-num-sys'>"+
                 "<option value='en-IN' >Indian</option>"+
                 "<option value='en-US' >US</option>"+
     	        "<option value='en-GB'>British</option>"+
@@ -130,7 +130,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/f400fbcd/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/af614e44/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{
@@ -145,7 +145,7 @@ function  Zapper(){
     $("body").click(function(event){
         console.log(event.target);
         targetElem= event.target;
-        if(targetElem.id == "annolet-container"||targetElem.id =="zapper"||targetElem.id =="annolet-header"||targetElem.id =="annolet-menu"||targetElem.className == "annolet-element"){
+        if(targetElem.id == "annolet-container"||targetElem.id =="zapper"||targetElem.id =="annolet-header"||targetElem.id =="annolet-menu"||targetElem.className == "annolet-menu-item"){
             targetElem.style.visibility="visible";
         }
         else{

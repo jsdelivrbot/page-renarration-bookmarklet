@@ -1,17 +1,15 @@
-/*body{
+body{
     margin: 0;
-}*/
+}
 
 #annolet-container{
-    /*overflow: hidden;
+    overflow: hidden;
     background-color: #2b849c !important;
     position: fixed;
     bottom: 0;
     width: 100%;
     border-radius: 31px 31px 0px 0px;
-    z-index: 99999999999999999999999;*/
-    overflow: auto;
-    white-space: nowrap;
+    z-index: 99999999999999999999999;
 }
 
 #annolet-header{
@@ -21,33 +19,14 @@
     font-family: monospace;
 }
 
-#annolet-menu {
-    /*list-style-type: none;
+#annolet-tools-menu{
+    list-style-type: none;
     margin: 0;
     padding: 1;
-    overflow: hidden;*/
-    width: 400px;
-    border: 1px #B3B3B3 solid;
-    border-radius: 15px 15px 0 0 ;
-    list-style: none;
-    padding: 5px 20px 10px 20px;
-    position: fixed;
-    margin: 0 auto;
-    left: 25%;
-    right: 25%;
-    bottom: 0;
-    box-shadow: 0 10px 16px 0;
-    background: rgb(247,247,247);background: -moz-linear-gradient(top, rgba(247,247,247,1) 67%, rgba(229,229,229,1) 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(67%,rgba(247,247,247,1)), color-stop(100%,rgba(229,229,229,1)));background: -webkit-linear-gradient(top, rgba(247,247,247,1) 67%,rgba(229,229,229,1) 100%);background: -o-linear-gradient(top, rgba(247,247,247,1) 67%,rgba(229,229,229,1) 100%);background: -ms-linear-gradient(top, rgba(247,247,247,1) 67%,rgba(229,229,229,1) 100%);background: linear-gradient(to bottom, rgba(247,247,247,1) 67%,rgba(229,229,229,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#e5e5e5',GradientType=0 );
-    z-index:9999;
+    overflow: hidden;
 }
 
-.annolet-element{
-    /*display: inline-block;
-    text-align: center;
-    padding: 0px 3px;
-    text-decoration: none;
-    font-weight: bold;
-    float: left;*/
+.annolet-menu-item{
     display: inline;
     margin:5px;
     cursor:pointer;
@@ -57,7 +36,7 @@
     font-size:.8em;
 }
 
-.annolet-button{
+.annolet-menu-sub-item{
     background: #fff !important;
     color: black !important;
     border-color: #f90 !important;
@@ -65,16 +44,16 @@
     width: 101%;
     height: 20px;
     font-size: 88%;
-    border-style: solid;
+    border-style: solid ;
     border-width: thin;
 }
 
-/*.annolet-button:hover{
+.annolet-menu-sub-item:hover{
     background: white !important;
     color: black !important;
 }
 
-.select-menu{
+.select-tools-menu{
     display: inline-block;
     background-color: #fff !important;
     color: black !important;
@@ -83,10 +62,10 @@
     font-weight: bold;
 }
 
-.select-menu:hover{
+.select-tools-menu:hover{
     background-color:white !important;
     color: black !important;
-}*/
+}
 
 
 

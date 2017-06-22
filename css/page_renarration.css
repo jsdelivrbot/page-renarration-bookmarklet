@@ -39,16 +39,23 @@
     z-index:9999;
 }
 
-/*.annolet-element{
-    display: inline-block;
+.annolet-element{
+    /*display: inline-block;
     text-align: center;
     padding: 0px 3px;
     text-decoration: none;
     font-weight: bold;
-    float: left;
+    float: left;*/
+    display: inline;
+    margin:5px;
+    cursor:pointer;
+    color:black;
+    font-family: sans-serif;
+    text-transform:uppercase;
+    font-size:.8em;
 }
 
-.annolet-button{
+/*.annolet-button{
     background: #fff !important;
     color: black !important;
     border-color: #f90 !important;

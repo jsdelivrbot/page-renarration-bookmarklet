@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/723dae1b/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/7f031857/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -19,8 +19,6 @@ function annoletContainer(){
     script_tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"; 
     document.getElementsByTagName('head')[0].appendChild(script_tag);
 
-    //Function to put the html code inside an annolet container
-    //getText()
     //injecting html code
     container.innerHTML = "<h4 id='annolet-header'>Page Renarration</h4>"+
     "<ul id='annolet-menu' >"+
@@ -61,29 +59,30 @@ function annoletContainer(){
             "</select>"+
         "</li>"+
         "<li class='annolet-element'>"+
+            "<button id='change-theme' class='annolet-button'>Switch CSS</button>"+"<br>"+
             "<select class='select-menu' id='select-theme'>"+
                 "<option value='switch1' >Theme1</option>"+
                 "<option value='switch2' >Theme2</option>"+
                 "<option value='switch3' >Theme3</option>"+
-            "</select>"+"<br>"+
-            "<button id='change-theme' class='annolet-button'>Switch CSS</button>"+
+            "</select>"+
         "</li>"+
         "<li class='annolet-element'>"+
+            "<button id='change-content' class='annolet-button' >Page Stripper</button>"+"<br>"+
             "<select class='select-menu' id='select-content'>"+
                 "<option value='show-links' >Show Links</option>"+
                 "<option value='show-text' >Show Text</option>"+
                 "<option value='show-images' >Show Images</option>"+
-            "</select>"+"<br>"+
-            "<button id='change-content' class='annolet-button' >Page Stripper</button>"+
+            "</select>"+
         "</li>"+
         "<li class='annolet-element'>"+
+            "<button id='change-font' class='annolet-button' >Visibility</button>"+"<br>"+
             "<select class='select-menu' id='select-font'>"+
                 "<option value='increase-font' >Increase Font</option>"+
                 "<option value='decrease-font' >Decrease Font</option>"+
-            "</select>"+"<br>"+
-            "<button id='change-font' class='annolet-button' >Visibility</button>"+
+            "</select>"+
         "</li>"+
         "<li class='annolet-element'>"+
+            "<button id='change-currency' class='annolet-button' >Convert Currency</button>"+"<br>"+
             "<select class='select-menu' id='select-from-currency'>"+
                 "<option value='USD' >USD</option>"+
                 "<option value='INR' >INR</option>"+
@@ -91,10 +90,10 @@ function annoletContainer(){
             "<select class='select-menu' id='select-to-currency'>"+
                 "<option value='USD' >USD</option>"+
                 "<option value='INR' >INR</option>"+
-            "</select>"+"<br>"+
-            "<button id='change-currency' class='annolet-button' >Convert Currency</button>"+
+            "</select>"+
         "</li>"+
         "<li class='annolet-element'>"+
+            "<button id='change-measurement' class='annolet-button' >Convert Measurements</button>"+"<br>"+
             "<select class='select-menu' id='select-from-measure'>"+
                 "<option value='miles'>Miles</option>"+
                 "<option value='foot' >Foot</option>"+
@@ -102,18 +101,17 @@ function annoletContainer(){
             "<select class='select-menu' id='select-to-measure'>"+
                 "<option value='meters' >meters</option>"+
                 "<option value='kilograms' >kilograms</option>"+
-            "</select>"+"<br>"+
-            "<button id='change-measurement' class='annolet-button' >Convert Measurements</button>"+
+            "</select>"+
         "</li>"+
     	"<li class='annolet-element'>"+
-                "<select class='select-menu' id='select-num-sys'>"+
-                    "<option value='en-IN' >Indian</option>"+
-                    "<option value='en-US' >US</option>"+
-        	        "<option value='en-GB'>British</option>"+
-        	        "<option value='ko-KR'>Korean</option>"+
-        	        "<option value='ar-EG'>Arabic</option>"+
-                "</select>"+"<br>"+
-    	 "<button id='change-num-sys' class='annolet-button' >Convert Num sys</button>"+
+            "<button id='change-num-sys' class='annolet-button' >Convert Num sys</button>"+"<br>"+
+            "<select class='select-menu' id='select-num-sys'>"+
+                "<option value='en-IN' >Indian</option>"+
+                "<option value='en-US' >US</option>"+
+    	        "<option value='en-GB'>British</option>"+
+    	        "<option value='ko-KR'>Korean</option>"+
+    	        "<option value='ar-EG'>Arabic</option>"+
+            "</select>"+
     	"</li>"+
     "</ul>";
 
@@ -132,7 +130,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/723dae1b/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/7f031857/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{

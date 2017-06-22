@@ -3,9 +3,7 @@ body{
 }
 
 #annolet{
-    overflow: hidden;
     background-color: #2b849c !important;
-    position: fixed;
     bottom: 0;
     width: 100%;
     border-radius: 31px 31px 0px 0px;
@@ -22,8 +20,11 @@ body{
 #annolet-tools-menu{
     list-style-type: none;
     margin: 0;
-    padding: 1;
-    overflow: hidden;
+    padding: 0;
+    width:100%;
+    position: fixed;
+    overflow: auto;
+    font-family: monospace;
 }
 
 .annolet-menu-item{
@@ -38,12 +39,12 @@ body{
 .annolet-menu-sub-item{
     background: #fff !important;
     color: black !important;
-    border-color: #f90 !important;
+    border-color: black !important;
     cursor: pointer;
     width: 101%;
     height: 20px;
     font-size: 88%;
-    border-style: solid ;
+    border-style: solid;
     border-width: thin;
     font-family:monospace;
     text-shadow: inherit;

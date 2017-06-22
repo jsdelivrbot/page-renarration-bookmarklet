@@ -3,13 +3,13 @@ body{
 }
 
 #annolet-container{
-  overflow: hidden;
-  background-color: black !important;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-radius: 31px 31px 0px 0px;
-  z-index: 99999999999999999999999;
+    overflow: hidden;
+    background-color: #2b849c !important;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 31px 31px 0px 0px;
+    z-index: 99999999999999999999999;
 }
 
 #annolet-header{
@@ -37,10 +37,15 @@ body{
 }
 
 .annolet-button{
-    background: orange !important;
-    color: white !important;
-    border-color: orange !important;
+    background: #fff !important;
+    color: black !important;
+    border-color: #f90 !important;
     cursor: pointer;
+    width: 101%;
+    height: 20px;
+    font-size: 88%;
+    border-style: solid;
+    border-width: thin;
 }
 
 .annolet-button:hover{
@@ -50,13 +55,13 @@ body{
 
 .select-menu{
     display: inline-block;
-    background-color: orange !important;
-    color: white !important;
+    background-color: #fff !important;
+    color: black !important;
     text-align: center;
     padding: 4px 2px;
     text-decoration: none;
     font-weight: bold;
-    float: left;    
+    float: left;
 }
 
 .select-menu:hover{

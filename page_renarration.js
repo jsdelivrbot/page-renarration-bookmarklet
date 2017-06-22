@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/eada17a9/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/a5922bbe/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -20,7 +20,7 @@ function annoletContainer(){
     document.getElementsByTagName('head')[0].appendChild(script_tag);
 
     //injecting html code
-    container.innerHTML = "<h6 id='annolet-header'>Page Renarration</h6>"+
+    container.innerHTML = "<h5 id='annolet-header'>Page Renarration</h5>"+
     "<ul id='annolet-tools-menu' >"+
         "<li class='annolet-menu-item'>"+
             "<button id='disable-css' class='annolet-menu-sub-item'>No CSS</button>"+
@@ -130,7 +130,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/eada17a9/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/a5922bbe/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{

@@ -32,6 +32,7 @@ body{
     padding: 0px 3px;
     text-decoration: none;
     font-weight: bold;
+    font-family: monospace;
 }
 
 .annolet-menu-sub-item{
@@ -44,6 +45,9 @@ body{
     font-size: 88%;
     border-style: solid ;
     border-width: thin;
+    font-family:monospace;
+    text-shadow: inherit;
+    border-radius: inherit;
 }
 
 .annolet-menu-sub-item:hover{

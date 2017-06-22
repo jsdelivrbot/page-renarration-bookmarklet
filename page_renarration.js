@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/bfd2e16c/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c6b1c3bb/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -130,7 +130,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/bfd2e16c/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c6b1c3bb/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{

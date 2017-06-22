@@ -9,6 +9,7 @@ body{
     border-radius: 31px 31px 0px 0px;
     z-index: 99999999999999999999999;
     position: fixed !important;
+    box-shadow:  0 -17px 52px 0 !important;
 }
 
 #annolet-header{
@@ -49,6 +50,7 @@ body{
     font-family:monospace !important;
     text-shadow: inherit !important;
     border-radius: inherit !important;
+    text-transform: uppercase !important;
 }
 
 .annolet-menu-sub-item:hover{
@@ -62,7 +64,6 @@ body{
     color: black !important;
     text-align: center !important;
     text-decoration: none !important;
-    font-weight: bold !important;
 }
 
 .select-tools-menu:hover{

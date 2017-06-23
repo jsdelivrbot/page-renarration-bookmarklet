@@ -45,7 +45,7 @@ body{
     width: 99% !important;
     font-size: 0.8em !important;
     border-style: solid !important;
-    border-width: thin !important;
+    border-width: medium !important;
     text-shadow: inherit !important;
     border-radius: inherit !important;
     text-transform: uppercase !important;
@@ -56,6 +56,7 @@ body{
 .annolet-menu-sub-item:hover{
     background: black !important;
     color: white !important;
+    border-color: white !important;
 }
 
 .select-tools-menu{
@@ -69,6 +70,7 @@ body{
 .select-tools-menu:hover{
     background: black !important;
     color: white !important;
+    border-color: white !important;
 }
 
 

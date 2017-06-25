@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/ed7c8384/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/a7a90f80/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -37,7 +37,7 @@ function annoletContainer(){
         "<li class='annolet-menu-item' >"+
             "<button id='phonetics-btn' class='annolet-menu-sub-item' >Phonetics</button>"+
         "</li>"+
-        "<li class='annolet-menu-item'>"+
+        "<li class='annolet-menu-item' style='top:5%;'>"+
             "<button id='trans-text' class='annolet-menu-sub-item' >Translate Text</button>"+"<br>"+
             "<select class='select-tools-menu' id='select-from-lang'>"+
                 "<option value='en' >English</option>"+
@@ -46,7 +46,7 @@ function annoletContainer(){
                 "<option value='ta' >Tamil</option>"+
                 "<option value='ml' >Malayalam</option>"+
                 "<option value='ja' >Japanese</option>"+
-                "<option value='zh-Hans' >Chinese</option>"+
+                "<option value='zh-Hant' >Chinese</option>"+
             "</select>"+
             "<select class='select-tools-menu' id='select-to-lang'>"+
                 "<option value='en' >English</option>"+
@@ -55,7 +55,7 @@ function annoletContainer(){
                 "<option value='ta' >Tamil</option>"+
                 "<option value='ml' >Malayalam</option>"+
                 "<option value='ja' >Japanese</option>"+
-                "<option value='zh-Hans' >Chinese</option>"+
+                "<option value='zh-Hant' >Chinese</option>"+
             "</select>"+
         "</li>"+
         "<li class='annolet-menu-item'>"+
@@ -130,7 +130,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/ed7c8384/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/a7a90f80/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{

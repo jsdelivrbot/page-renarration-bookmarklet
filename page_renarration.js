@@ -155,7 +155,7 @@ function  Zapper(){
     $("body").click(function(event){
         console.log(event.target);
         targetElem= event.target;
-        if(targetElem.id == "annolet-container"||targetElem.id =="zapper"||targetElem.id =="annolet-header"||targetElem.id =="annolet-menu"||targetElem.className == "annolet-menu-item"){
+        if(targetElem.id == "annolet"||targetElem.id =="zapper"||targetElem.id =="annolet-header"||targetElem.id =="annolet-menu"||targetElem.className == "annolet-menu-item"){
             targetElem.style.visibility="visible";
         }
         else{
@@ -326,8 +326,8 @@ function showContent(){
     }
 
     //get the menu bar id 
-    document.getElementById('annolet-container').style.visibility='visible';
-    var children = document.getElementById('annolet-container').children;
+    document.getElementById('annolet').style.visibility='visible';
+    var children = document.getElementById('annolet').children;
     //This will make all children elements of div visible. 
     for(var i = 0; i < children.length; i++){
         children[i].style.visibility = 'visible';

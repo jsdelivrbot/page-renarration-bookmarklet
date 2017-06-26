@@ -6,7 +6,7 @@ html
 	-ms-filter: invert(100%);
 }
 
-#annolet-container, #annolet-header,  
+#annolet, #annolet-header,  
 #annolet-tools-menu
 {
 	color: inherit !important;

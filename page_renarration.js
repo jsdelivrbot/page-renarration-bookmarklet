@@ -255,9 +255,9 @@ function alternateStylesheets(){
     //appending a CSS alternate stylesheets to head element of a webpage.
     var i= 0;
     var style_sheets = 3; 
-    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/ee8ef824/css/switch1.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/ee8ef824/css/switch2.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/ee8ef824/css/switch3.css'];
+    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/24d48623/css/switch1.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/24d48623/css/switch2.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/24d48623/css/switch3.css'];
     var link_title =['switch1', 'switch2', 'switch3'];
 
     for(i=0; i<style_sheets; i++){

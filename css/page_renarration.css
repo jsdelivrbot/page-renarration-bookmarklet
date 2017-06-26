@@ -2,7 +2,7 @@ body{
     margin: 0 !important;
 }
 
-#annolet{
+#annolet-container{
     background-color: #2b849c !important;
     bottom: 0 !important;
     width: 100% !important;

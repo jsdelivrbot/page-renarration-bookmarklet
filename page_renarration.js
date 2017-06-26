@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/101f1ad2/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -140,7 +140,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/101f1ad2/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{
@@ -255,9 +255,9 @@ function alternateStylesheets(){
     //appending a CSS alternate stylesheets to head element of a webpage.
     var i= 0;
     var style_sheets = 3; 
-    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch1.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch2.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch3.css'];
+    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/switch1.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/switch2.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/switch3.css'];
     var link_title =['switch1', 'switch2', 'switch3'];
 
     for(i=0; i<style_sheets; i++){

@@ -20,7 +20,7 @@ function annoletContainer(){
     document.getElementsByTagName('head')[0].appendChild(script_tag);
 
     //injecting html code
-    container.innerHTML = "<h5 id='annolet-header'>Renarration</h5>"+
+    container.innerHTML = "<h4 id='annolet-header'>Renarration</h4>"+
     "<ul id='annolet-tools-menu' >"+
         "<li class='annolet-menu-item'>"+
             "<button id='disable-css' class='annolet-menu-sub-item'>No CSS</button>"+
@@ -113,6 +113,16 @@ function annoletContainer(){
     	        "<option value='ar-EG'>Arabic</option>"+
             "</select>"+
     	"</li>"+
+        "<li class='annolet-menu-item'>"+
+            "<button id='change-date-format' class='annolet-menu-sub-item' >Date Format</button>"+"<br>"+
+            "<select class='select-tools-menu' id='select-date-format'>"+
+                "<option value='en-IN' >Indian</option>"+
+                "<option value='en-US' >US</option>"+
+                "<option value='en-GB'>British</option>"+
+                "<option value='ko-KR'>Korean</option>"+
+                "<option value='ar-EG'>Arabic</option>"+
+            "</select>"+
+        "</li>"+
     "</ul>";
 
 }
@@ -388,6 +398,26 @@ function convertNumsys(){
     parent.html( newHtml );
 }
 
+//Function to format the date as per the preferred country.
+function formatDate(){
+    var selected_format = document.getElementById("select-date-format").value;
+    if (window.getSelection) 
+    {
+        var selected_text = window.getSelection().toString();
+        var selected_date = new Date(selected_text);
+    } 
+    else if (document.selection && document.selection.type != "Control") {
+        var selected_text = document.selection.createRange().text;
+        var selected_date = new Date(selected_text);
+    }
+    var formated_date = selected_date.toLocaleString(selected_format);
+    var parent = $(window.getSelection().focusNode.parentElement);
+    var oldHtml = parent.html();
+    var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+formated_date+"</span>");
+    parent.html( newHtml );
+
+}
+
 // Function to add click events to the annolet elements.
 function addClickevents(){
     document.getElementById('disable-css').addEventListener('click', function() {
@@ -423,6 +453,9 @@ function addClickevents(){
     document.getElementById('change-num-sys').addEventListener('click', function() {
         convertNumsys()
     }, false);
+    document.getElementById('change-date-format').addEventListener('click', function() {
+        formatDate()
+    }, false);
 }
 
 window.onload = function() {
@@ -430,3 +463,4 @@ window.onload = function() {
     disableLinks()
     addClickevents()
 };
+    

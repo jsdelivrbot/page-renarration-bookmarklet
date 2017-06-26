@@ -3,7 +3,7 @@ function annoletContainer(){
     //appending a div(annolet container) to body element of a webpage.
     var body = document.getElementsByTagName('body')[0];
     container = document.createElement('div');
-    container.id = 'annolet';
+    container.id = 'annolet-container';
     body.appendChild(container);
     
     //appending a CSS stylesheet to head element of a webpage, which is used to stylize the annolet container.
@@ -155,7 +155,7 @@ function  Zapper(){
     $("body").click(function(event){
         console.log(event.target);
         targetElem= event.target;
-        if(targetElem.id == "annolet"||targetElem.id =="zapper"||targetElem.id =="annolet-header"||targetElem.id =="annolet-menu"||targetElem.className == "annolet-menu-item"){
+        if(targetElem.id == "annolet-container"||targetElem.id =="zapper"||targetElem.id =="annolet-header"||targetElem.id =="annolet-menu"||targetElem.className == "annolet-menu-item"){
             targetElem.style.visibility="visible";
         }
         else{
@@ -255,9 +255,9 @@ function alternateStylesheets(){
     //appending a CSS alternate stylesheets to head element of a webpage.
     var i= 0;
     var style_sheets = 3; 
-    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/0275484f/css/switch1.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/0745b9a6/css/switch2.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/0745b9a6/css/switch3.css'];
+    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch1.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch2.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch3.css'];
     var link_title =['switch1', 'switch2', 'switch3'];
 
     for(i=0; i<style_sheets; i++){
@@ -326,8 +326,8 @@ function showContent(){
     }
 
     //get the menu bar id 
-    document.getElementById('annolet').style.visibility='visible';
-    var children = document.getElementById('annolet').children;
+    document.getElementById('annolet-container').style.visibility='visible';
+    var children = document.getElementById('annolet-container').children;
     //This will make all children elements of div visible. 
     for(var i = 0; i < children.length; i++){
         children[i].style.visibility = 'visible';

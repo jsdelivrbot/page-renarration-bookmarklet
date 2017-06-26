@@ -4,13 +4,11 @@
 }
 
 
-/*#annolet-container, #annolet-header,  
-#annolet-tools-menu, .annolet-menu-item,
-.annolet-menu-sub-item, .select-tools-menu 
+#annolet-header,#annolet-tools-menu,.annolet-menu-item,
+.annolet-menu-sub-item,.select-tools-menu 
 {
-	color: inherit !important;
-	background: inherit !important;
-}*/
+	background-color: #2b849c !important;
+}
 
 
 

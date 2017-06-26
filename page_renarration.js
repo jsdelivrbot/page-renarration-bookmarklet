@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/a7a90f80/css/page_renarration.css"; 
+    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/101f1ad2/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //appending jquery to head element of a webpage
@@ -22,22 +22,22 @@ function annoletContainer(){
     //injecting html code
     container.innerHTML = "<h4 id='annolet-header'>Renarration</h4>"+
     "<ul id='annolet-tools-menu' >"+
-        "<li class='annolet-menu-item'>"+
-            "<button id='disable-css' class='annolet-menu-sub-item'>No CSS</button>"+
+        "<li class='annolet-menu-item' style='position:relative;top:-25px'>"+
+            "<button id='disable-css' class='annolet-menu-sub-item' >No CSS</button>"+
         "</li>"+
-        "<li class='annolet-menu-item'>"+
+        "<li class='annolet-menu-item' style='position:relative;top:-25px'>"+
             "<button id='zapper' class='annolet-menu-sub-item' >Zapper</button>"+
         "</li>"+
-        "<li class='annolet-menu-item'>"+
+        "<li class='annolet-menu-item' style='position:relative;top:-25px'>"+
             "<button id='modify-content' class='annolet-menu-sub-item' >Modify Content</button>"+
         "</li>"+
-        "<li class='annolet-menu-item' >"+
+        "<li class='annolet-menu-item' style='position:relative;top:-25px'>"+
             "<button id='highlighter-btn' class='annolet-menu-sub-item' >Highlighter</button>"+
         "</li>"+
-        "<li class='annolet-menu-item' >"+
+        "<li class='annolet-menu-item' style='position:relative;top:-25px'>"+
             "<button id='phonetics-btn' class='annolet-menu-sub-item' >Phonetics</button>"+
         "</li>"+
-        "<li class='annolet-menu-item' style='top:5%;'>"+
+        "<li class='annolet-menu-item'>"+
             "<button id='trans-text' class='annolet-menu-sub-item' >Translate Text</button>"+"<br>"+
             "<select class='select-tools-menu' id='select-from-lang'>"+
                 "<option value='en' >English</option>"+
@@ -140,7 +140,7 @@ function disableLinks(){
 function disableCss(){
     var styleSheets = document.styleSheets;
     for ( var i=0; i<styleSheets.length; i++) {
-        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/a7a90f80/css/page_renarration.css'){
+        if(styleSheets[i].href == 'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/101f1ad2/css/page_renarration.css'){
            styleSheets[i].disabled = false;
         }
         else{

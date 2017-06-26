@@ -6,13 +6,12 @@ html
 	-ms-filter: invert(100%);
 }
 
-/*#annolet-container, #annolet-header, .select-menu
+#annolet-container, #annolet-header,  
+#annolet-tools-menu
 {
-	-webkit-filter: invert(0%);
-	-moz-filter: invert(0%);
-	-o-filter: invert(0%);
-	-ms-filter: invert(0%); 
-}*/
+	color: inherit !important;
+	background: inherit !important;
+}
 
 
 

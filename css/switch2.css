@@ -4,7 +4,8 @@
 }
 
 
-#annolet-container, #annolet-header, .annolet-elements
+#annolet-container, #annolet-header,  
+#annolet-tools-menu
 {
 	color: inherit !important;
 	background: inherit !important;

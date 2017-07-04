@@ -40,7 +40,7 @@ function annoletContainer(){
                 "<option value='ta' >Tamil</option>"+
                 "<option value='ml' >Malayalam</option>"+
                 "<option value='ja' >Japanese</option>"+
-                "<option value='zh-Hant' >Chinese</option>"+
+                "<option value='zh' >Chinese</option>"+
             "</select>"+
             "<select class='select-tools-menu' id='select-to-lang'>"+
                 "<option value='en' >English</option>"+
@@ -49,7 +49,7 @@ function annoletContainer(){
                 "<option value='ta' >Tamil</option>"+
                 "<option value='ml' >Malayalam</option>"+
                 "<option value='ja' >Japanese</option>"+
-                "<option value='zh-Hant' >Chinese</option>"+
+                "<option value='zh' >Chinese</option>"+
             "</select>"+
         "</li>"+
         "<li class='annolet-menu-item'>"+
@@ -80,23 +80,25 @@ function annoletContainer(){
             "<select class='select-tools-menu' id='select-from-currency'>"+
                 "<option value='USD' >USD</option>"+
                 "<option value='INR' >INR</option>"+
+                "<option value='EUR' >EUR</option>"+
             "</select>"+
             "<select class='select-tools-menu' id='select-to-currency'>"+
                 "<option value='USD' >USD</option>"+
                 "<option value='INR' >INR</option>"+
+                "<option value='EUR' >EUR</option>"+
             "</select>"+
         "</li>"+
         "<li class='annolet-menu-item'>"+
             "<button id='change-measurement' class='annolet-menu-sub-item' >Convert Measurements</button>"+"<br>"+
             "<select class='select-tools-menu' id='select-from-measure'>"+
+                "<option value='km'>kilometers</option>"+
                 "<option value='cm'>centimeters</option>"+
                 "<option value='miles'>Miles</option>"+
-                "<option value='foot' >Foot</option>"+
             "</select>"+
             "<select class='select-tools-menu' id='select-to-measure'>"+
-                "<option value='in'>inches</option>"+
-                "<option value='meters' >meters</option>"+
-                "<option value='kilograms' >kilograms</option>"+
+                "<option value='miles'>Miles</option>"+
+                "<option value='inches'>inches</option>"+
+                "<option value='km'>kilometers</option>"+
             "</select>"+
         "</li>"+
     	"<li class='annolet-menu-item'>"+
@@ -233,7 +235,6 @@ function translateText(){
         if (xhr.readyState == 4)
         {
             var language_trans = xhr.responseText;
-            alert(language_trans);
             var parent = $(window.getSelection().focusNode.parentElement);
             var oldHtml = parent.html();
             var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+language_trans+"</span>");
@@ -287,11 +288,11 @@ function showContent(){
         for (var i=0, max=all.length; i < max; i++) {
             var href_attribute = all[i].hasAttribute("href");
             var src_attribute = all[i].hasAttribute("src");
-            if(href_attribute == false && src_attribute == false){
-                all[i].style.visibility = 'hidden';
-            }
-            else if(href_attribute == true || src_attribute == true){
+            if(href_attribute == true || src_attribute == true){
                 all[i].style.visibility = 'visible';
+            }
+            else if(href_attribute == false && src_attribute == false){
+                all[i].style.visibility = 'hidden';
             }
         }
     }
@@ -319,10 +320,10 @@ function showContent(){
 
     //get the menu bar id 
     document.getElementById('annolet-container').style.visibility='visible';
-    var children = document.getElementById('annolet-container').children;
+    var annolet_elems = document.getElementById('annolet-container').children;
     //This will make all children elements of div visible. 
-    for(var i = 0; i < children.length; i++){
-        children[i].style.visibility = 'visible';
+    for(var i = 0; i < annolet_elems.length; i++){
+        annolet_elems[i].style.visibility = 'visible';
     }
 }
 
@@ -331,26 +332,26 @@ function changeFont(){
     var fontSize = parseInt($('body').css('font-size'),10);
     var selected_font = document.getElementById("select-font").value;
     if(selected_font == 'increase-font'){
-        fontSize+=0.5;
+        fontSize +=1.5;
         $('body').css('font-size', fontSize+'px');
     }
     else if(selected_font == 'decrease-font'){
-        fontSize-=0.5;
+        fontSize -=1;
         $('body').css('font-size', fontSize+'px');
     }
 }
 
 // Function to convert the currency 
 function convertCurrency(){
-    alert("entered currency...")
     if (window.getSelection) 
     {
         var amount= window.getSelection().toString();
+        amount = amount.replace (/,/g, "");
     } 
     else if (document.selection && document.selection.type != "Control") {
         var amount = document.selection.createRange().text;
+        amount = amount.replace (/,/g, "");
     }
-    
     var from_cur = document.getElementById("select-from-currency").value;
     var to_cur = document.getElementById("select-to-currency").value;
     var url = "//localhost:5000/currency-conversion"
@@ -362,9 +363,11 @@ function convertCurrency(){
     xhr.onreadystatechange = function() {
         if (this.readyState==4 && this.status==200) {
             var res = this.responseText;
+            res1 = JSON.parse(res);
+            var currency_res = res1["api-error"];
             var parent = $(window.getSelection().focusNode.parentElement);
             var oldHtml = parent.html();
-            var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+res+"</span>");
+            var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+currency_res+"</span>");
             parent.html( newHtml );
         }
     }
@@ -380,14 +383,30 @@ function changeMeasurement() {
         var number = document.selection.createRange().text;
         var measurement_num =  parseFloat(number);
     }
-  var realFeet = ((measurement_num*0.393700) / 12);
-  var feet = Math.floor(realFeet);
-  var inches = Math.round((realFeet - feet) * 12);
-  var res= inches + '&Prime;';
-  var parent = $(window.getSelection().focusNode.parentElement);
-  var oldHtml = parent.html();
-  var newHtml = oldHtml.replace(number, "<span class='highlight' style='color:green'>"+res+"</span>");
-  parent.html( newHtml );
+    var select_from_measure = document.getElementById('select-from-measure').value;
+    var select_to_measure = document.getElementById('select-to-measure').value;
+    if(select_from_measure == "cm" && select_to_measure == 'inches'){
+        var inch = measurement_num;
+        if (!isNaN(inch)){
+            measurement_res = inch * 0.393701;
+        }
+    }
+    else if(select_from_measure == "km" && select_to_measure == 'miles'){
+        var mi = measurement_num;
+        if (!isNaN(mi)){
+            measurement_res = mi * 0.621371192;
+        }
+    }
+    else if(select_from_measure == "miles" && select_to_measure == 'km'){
+        var km = measurement_num;
+        if (!isNaN(km)) {
+            measurement_res = km * 1.609344;
+        }
+    }
+    var parent = $(window.getSelection().focusNode.parentElement);
+    var oldHtml = parent.html();
+    var newHtml = oldHtml.replace(number, "<span class='highlight' style='color:green'>"+measurement_res+"</span>");
+    parent.html( newHtml );
 }
 
 //Function to convert the number in preferred number system.

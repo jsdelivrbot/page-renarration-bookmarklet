@@ -13,12 +13,6 @@ function annoletContainer(){
     linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
-    //appending jquery to head element of a webpage
-    var script_tag = document.createElement('script');
-    script_tag.type = "text/javascript";
-    script_tag.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"; 
-    document.getElementsByTagName('head')[0].appendChild(script_tag);
-
     //injecting html code
     container.innerHTML = "<h4 id='annolet-header'>Renarration</h4>"+
     "<ul id='annolet-tools-menu' >"+
@@ -175,9 +169,7 @@ function modifyContent() {
 }
 
 // Function to highlight selected text on a web page.
-function highlightContent(){
-    // var mytext = selectHTML();
-    // $('span').css({"background-color":"yellow"});
+function highlightContent() {
     var userSelection = window.getSelection();
     for(var i = 0; i < userSelection.rangeCount; i++) {
         highlightRange(userSelection.getRangeAt(i));
@@ -213,7 +205,6 @@ function phoneticsTrans(){
             var res = this.responseText;
             var parent = $(window.getSelection().focusNode.parentElement);
             var oldHtml = parent.html();
-            console.log(oldHtml);
             var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+res+"</span>");
             parent.html( newHtml );
         }
@@ -241,7 +232,6 @@ function translateText(){
     {
         if (xhr.readyState == 4)
         {
-            console.log('language trans set');
             var language_trans = xhr.responseText;
             alert(language_trans);
             var parent = $(window.getSelection().focusNode.parentElement);
@@ -360,11 +350,7 @@ function convertCurrency(){
     else if (document.selection && document.selection.type != "Control") {
         var amount = document.selection.createRange().text;
     }
-    // var parent = $(window.getSelection().focusNode.parentElement);
-    // var oldHtml = parent.html();
-    // var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'></span>");
-    // parent.html( newHtml );
-
+    
     var from_cur = document.getElementById("select-from-currency").value;
     var to_cur = document.getElementById("select-to-currency").value;
     var url = "//localhost:5000/currency-conversion"
@@ -376,9 +362,6 @@ function convertCurrency(){
     xhr.onreadystatechange = function() {
         if (this.readyState==4 && this.status==200) {
             var res = this.responseText;
-            // var converted_cur = parseInt(res);
-            // alert(converted_cur);
-            // console.log(typeof converted_cur);
             var parent = $(window.getSelection().focusNode.parentElement);
             var oldHtml = parent.html();
             var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+res+"</span>");

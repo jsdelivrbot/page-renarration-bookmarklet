@@ -364,13 +364,42 @@ function convertCurrency(){
         if (this.readyState==4 && this.status==200) {
             var res = this.responseText;
             res1 = JSON.parse(res);
-            var currency_res = res1["api-error"];
+            var currency_res = res1["result"];
             var parent = $(window.getSelection().focusNode.parentElement);
             var oldHtml = parent.html();
             var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+currency_res+"</span>");
             parent.html( newHtml );
         }
     }
+    // if (window.getSelection) 
+    // {
+    //     var amount = window.getSelection().toString();
+    //     var cur_amount =  parseFloat(amount);
+    //     alert(cur_amount);
+    //     console.log(cur_amount);
+    // } 
+    // else if (document.selection && document.selection.type != "Control") {
+    //     var amount = document.selection.createRange().text;
+    //     var cur_amount =  parseFloat(amount);
+    //     alert(cur_amount);
+    //     console.log(cur_amount);
+    // }
+    // var select_from_currency = document.getElementById('select-from-currency').value;
+    // var select_to_currency = document.getElementById('select-to-currency').value;
+    // if(select_from_currency == "USD" && select_to_currency == 'INR'){
+    //     var INR = cur_amount;
+    //     alert(INR);
+    //     if (!isNaN(INR)){
+    //         cur_res = INR * 64.74;
+    //         alert("ssdfds");
+    //         alert(cur_res);
+    //     }
+    // }
+    
+    // var parent = $(window.getSelection().focusNode.parentElement);
+    // var oldHtml = parent.html();
+    // var newHtml = oldHtml.replace(number, "<span class='highlight' style='color:green'>"+cur_res+"</span>");
+    // parent.html( newHtml );
 }
 
 function changeMeasurement() {

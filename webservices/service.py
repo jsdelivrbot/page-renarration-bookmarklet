@@ -50,7 +50,7 @@ def languagetranslive():
 #currency_key = '54f53c7dfcde68edca973db6cec90ba1'
 #currency_key = 'DFyMH2R9KL29yE2OqomV1rvxpUsBQKEsATexoBhC6K3nGNH8'
 #currency_key = 'vh1JmXolhfcjFhB3E9ahcbyfL6MkDjCR34Ub96XdOr5ke9NS'
-currency_key = '3S8mkrqQmWmW0wMNBtlC0wxBIusz2l4rnEdbcoMhkNfSeBUn'
+currency_key = 'sVvJ10cTxzXFWCEnE7MosSsMKK5RP5hZJ5VN6BZ6OBrGXWjI'
 @app.route("/currency-conversion", methods=['POST'])
 def currencyconversion():
     try :
@@ -70,7 +70,8 @@ def currencyconversion():
         return "to_cur parameter not passed"
     #res = req.get('https://www.google.com/finance/converter?a=60&from=INR&to=UAH&meta=ei%3DrSlHWeHxI8KXuATylqUI')
     #res = req.get('http://free.currencyconverterapi.com/api/v3/convert?q='+from_cur+'_'+to_cur+'&amount='+amount)
-    res =req.get('https://neutrinoapi.com/convert?user-id=sadhanareddy&api-key='+currency_key+'&from-value='+amount+'&from-type='+from_cur+'&to-type='+to_cur+'&output-format=JSON')
+    res =req.get('https://neutrinoapi.com/convert?user-id=sara&api-key='+currency_key+'&from-value='+amount+'&from-type='+from_cur+'&to-type='+to_cur+'&output-format=JSON')
+    #res =req.get('https://www.google.com/finance/converter?a=1&from=USD&to=INR&meta=ei%3DP3hbWbDONM3AuATbqoe4Aw')
     print res
     soup = bs4.BeautifulSoup(res.text)
     ret = soup.text

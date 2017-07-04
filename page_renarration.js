@@ -95,10 +95,12 @@ function annoletContainer(){
         "<li class='annolet-menu-item'>"+
             "<button id='change-measurement' class='annolet-menu-sub-item' >Convert Measurements</button>"+"<br>"+
             "<select class='select-tools-menu' id='select-from-measure'>"+
+                "<option value='cm'>centimeters</option>"+
                 "<option value='miles'>Miles</option>"+
                 "<option value='foot' >Foot</option>"+
             "</select>"+
             "<select class='select-tools-menu' id='select-to-measure'>"+
+                "<option value='in'>inches</option>"+
                 "<option value='meters' >meters</option>"+
                 "<option value='kilograms' >kilograms</option>"+
             "</select>"+
@@ -255,9 +257,9 @@ function alternateStylesheets(){
     //appending a CSS alternate stylesheets to head element of a webpage.
     var i= 0;
     var style_sheets = 3; 
-    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/24d48623/css/switch1.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/24d48623/css/switch2.css',
-    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/24d48623/css/switch3.css'];
+    var css_themes =['https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c73b92c5/css/switch1.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c73b92c5/css/switch2.css',
+    'https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c73b92c5/css/switch3.css'];
     var link_title =['switch1', 'switch2', 'switch3'];
 
     for(i=0; i<style_sheets; i++){
@@ -358,6 +360,11 @@ function convertCurrency(){
     else if (document.selection && document.selection.type != "Control") {
         var amount = document.selection.createRange().text;
     }
+    // var parent = $(window.getSelection().focusNode.parentElement);
+    // var oldHtml = parent.html();
+    // var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'></span>");
+    // parent.html( newHtml );
+
     var from_cur = document.getElementById("select-from-currency").value;
     var to_cur = document.getElementById("select-to-currency").value;
     var url = "//localhost:5000/currency-conversion"
@@ -369,12 +376,35 @@ function convertCurrency(){
     xhr.onreadystatechange = function() {
         if (this.readyState==4 && this.status==200) {
             var res = this.responseText;
+            // var converted_cur = parseInt(res);
+            // alert(converted_cur);
+            // console.log(typeof converted_cur);
             var parent = $(window.getSelection().focusNode.parentElement);
             var oldHtml = parent.html();
             var newHtml = oldHtml.replace(amount, "<span class='highlight' style='color:green'>"+res+"</span>");
             parent.html( newHtml );
         }
     }
+}
+
+function changeMeasurement() {
+   if (window.getSelection) 
+    {
+        var number = window.getSelection().toString();
+        var measurement_num =  parseFloat(number);
+    } 
+    else if (document.selection && document.selection.type != "Control") {
+        var number = document.selection.createRange().text;
+        var measurement_num =  parseFloat(number);
+    }
+  var realFeet = ((measurement_num*0.393700) / 12);
+  var feet = Math.floor(realFeet);
+  var inches = Math.round((realFeet - feet) * 12);
+  var res= inches + '&Prime;';
+  var parent = $(window.getSelection().focusNode.parentElement);
+  var oldHtml = parent.html();
+  var newHtml = oldHtml.replace(number, "<span class='highlight' style='color:green'>"+res+"</span>");
+  parent.html( newHtml );
 }
 
 //Function to convert the number in preferred number system.
@@ -410,7 +440,7 @@ function formatDate(){
         var selected_text = document.selection.createRange().text;
         var selected_date = new Date(selected_text);
     }
-    var formated_date = selected_date.toLocaleString(selected_format);
+    var formated_date = selected_date.toLocaleDateString(selected_format);
     var parent = $(window.getSelection().focusNode.parentElement);
     var oldHtml = parent.html();
     var newHtml = oldHtml.replace(selected_text, "<span class='highlight' style='color:green'>"+formated_date+"</span>");
@@ -455,6 +485,9 @@ function addClickevents(){
     }, false);
     document.getElementById('change-date-format').addEventListener('click', function() {
         formatDate()
+    }, false);
+    document.getElementById('change-measurement').addEventListener('click', function() {
+        changeMeasurement()
     }, false);
 }
 

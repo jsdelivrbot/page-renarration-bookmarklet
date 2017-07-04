@@ -69,11 +69,11 @@ def currencyconversion():
         return "to_cur parameter not passed"
     #res = req.get('https://www.google.com/finance/converter?a=60&from=INR&to=UAH&meta=ei%3DrSlHWeHxI8KXuATylqUI')
     #res = req.get('http://free.currencyconverterapi.com/api/v3/convert?q='+from_cur+'_'+to_cur+'&amount='+amount)
-    res =req.get('https://neutrinoapi.com/convert?user-id=sadhanavirupaksha&api-key='+currency_key+'&from-value='+amount+'&from-type='+from_cur+'&to-type='+to_cur+'&output-format=XML')
-    # print res
+    res =req.get('https://neutrinoapi.com/convert?user-id=sadhanavirupaksha&api-key='+currency_key+'&from-value='+amount+'&from-type='+from_cur+'&to-type='+to_cur+'&output-format=JSON')
+    print res
     soup = bs4.BeautifulSoup(res.text)
     ret = soup.text
-    print ret
+    #print ret
     # page = urllib2.urlopen('https://neutrinoapi.com/convert?user-id=sadhanavirupaksha&api-key='+currency_key+'&from-value='+amount+'&from-type='+from_cur+'&to-type='+to_cur+'&output-format=XML').read()
     # soup = bs4.BeautifulSoup(page, 'xml')
     # ret = soup.find('result').get_text(strip=True)

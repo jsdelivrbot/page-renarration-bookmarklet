@@ -6,8 +6,7 @@
    	<meta name="viewport" content="width=device-width, initial-scale=1">
    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    	<style type="text/css">
-  	
-	  	.jumbotron{
+  		.jumbotron{
 	  		background-color: black;
 	  	}
 	  	h2{
@@ -50,18 +49,21 @@
     <div class="row">
   	    <div class="col-sm-12">
 	  		<p id="instruction">Drag this link to the bookmarks tool bar</p>
-	 		<a id="js-link" href="javascript:(function(){if (!($ = window.jQuery)){
-				    script = document.createElement('script');
-				   	script.src = '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'; 
-				    script.onload= transform_tool;
-				    document.getElementsByTagName('head')[0].appendChild(script);}
-					else{transformTool();} 
-					function transformTool(){
-						script = document.createElement('script');
-						script.src='https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/d3379e8e/page_renarration.js';
-						document.getElementsByTagName('head')[0].appendChild(script);
-					}}())">Page Renarrate
-			</a>
+	 		<a id="js-link" href="javascript:(function(){
+			 		if(!($=window.jQuery)){
+		 				script=document.createElement('script');
+		 				script.src='//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js';
+		 				script.onload=initAnnoLet;
+		 				document.getElementsByTagName('head')[0].appendChild(script);
+			 		}
+	 				else{
+	 					initAnnoLet();
+	 				}
+	 				function initAnnoLet(){
+	 					script=document.createElement('script');script.src='https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/c73b92c5/page_renarration.js?v='+parseInt(Math.random()*1000);document.getElementsByTagName('head')[0].appendChild(script);
+	 				}
+	 			})()" >Renarrate Page
+	 		</a>
   		</div>
     </div>
 </div>

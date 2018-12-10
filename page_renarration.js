@@ -10,7 +10,7 @@ function annoletContainer(){
     var linktag = document.createElement('link');
     linktag.rel = "stylesheet";
     linktag.type = "text/css";
-    linktag.href = "https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/360a1042/css/page_renarration.css"; 
+    linktag.href = "https://cdn.jsdelivr.net/gh/sadhanareddy/page-renarration-bookmarklet@360a1042/css/page_renarration.css"; 
     document.getElementsByTagName('head')[0].appendChild(linktag);
 
     //injecting html code

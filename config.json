@@ -1,7 +1,7 @@
 {
 	"text_file":"",
-	"page_renarration_css":"https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/b06e6cf7/css/page_renarration.css",
-	"switch1_css":"https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch1.css",
-	"switch2_css":"https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch2.css",
-	"switch3_css":"https://cdn.rawgit.com/sadhanareddy/page-renarration-bookmarklet/2b16f6d9/css/switch3.css"
+	"page_renarration_css":"https://cdn.jsdelivr.net/gh/sadhanareddy/page-renarration-bookmarklet@b06e6cf7/css/page_renarration.css",
+	"switch1_css":"https://cdn.jsdelivr.net/gh/sadhanareddy/page-renarration-bookmarklet@2b16f6d9/css/switch1.css",
+	"switch2_css":"https://cdn.jsdelivr.net/gh/sadhanareddy/page-renarration-bookmarklet@2b16f6d9/css/switch2.css",
+	"switch3_css":"https://cdn.jsdelivr.net/gh/sadhanareddy/page-renarration-bookmarklet@2b16f6d9/css/switch3.css"
 }
